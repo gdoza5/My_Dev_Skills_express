@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Document</title>
 </head>
 <body>
         <h1>Skills</h1>
         <ul>
-          <% skills.forEach(function(t,i) { %>
+          <% skills.forEach(function(s,i) { %>
             <li>
-                <a href="/skills/<%= i %>"><%= t.skill %></a>
+                <form action="/skills/<%= i %>?_method=DELETE"
+                  class="delete-form" method="POST">
+                  <button type="submit">X</button>
+                </form>
+                <a href="/skills/<%= i %>"><%= s.skill %> / <%= s.years %> years of experience</a>
                 - 
               <%=  %>
             </li>
           <% }); %>
         </ul>
-    
+    <a href="/skills/new">Add Skill</a>
 </body>
 </html>
